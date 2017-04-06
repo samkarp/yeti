@@ -1,0 +1,30 @@
+<div class="container">
+	<h1>Claymore</h1>
+		<table class="table table-striped">
+            <thead>
+                <th>Name</th>
+                <th>Breed</th>
+                <th>Cuteness</th>
+                <th>Smell</th>
+                <th>Color</th>
+                <th>Agressiveness</th>
+                <th>Food</th>
+                <th>Best in Show</th>
+                <th></th>
+            </thead>
+            <tbody>
+            	<tr ng-repeat="claymore in model.claymores">
+                    <th>{{claymore.name}}</th>
+                    <th>{{claymore.breed}}</th>
+                    <th>{{claymore.cuteness}}</th>
+                    <th>{{claymore.smell}}</th>
+                    <th>{{claymore.color}}</th>
+                    <th>{{claymore.agressiveness}}</th>
+                    <th>{{claymore.food}}</th>
+                    <th>{{claymore.bestInShow}}</th>
+                    <th></th>  
+                </tr>
+            </tbody>
+        </table>
+
+</div>

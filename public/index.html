@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="yeti">
+    <head>
+        <meta charset="UTF-8">
+        <title>YETI</title>
+        <link type="text/css" href="libs/bootstrap/dist/css/bootstrap.css" rel="stylesheet"/>
+        <style>
+            .center { text-align: center;}
+            .notice { color: red;}
+            .navbar{
+                margin-bottom: 1px;
+            }
+            .copyright {
+                font-size: 10px;
+                font-color: gray;
+            }
+            html, body {
+                height: 100%;
+            }
+            #divHeader {
+                height: 70px;
+            }
+            #divContent {
+                min-height: 100%;
+                height: auto !important;
+                height: 100%;
+                margin: 0 auto -100px;
+                vertical-align: bottom;
+            }
+            #divFooter, #divPush {
+                height: 100px;
+
+            }
+            .banner {
+                width: 100%;
+            }
+        </style>
+        <script src="libs/jquery/dist/jquery.js"></script>      
+        <script src="libs/angular/angular.js"></script>
+        <script src="libs/angular-simple-logger/dist/angular-simple-logger.js"></script>
+        <script src="libs/angular-ui-router/release/angular-ui-router.js"></script>  
+        <script src="libs/angular-ui/build/angular-ui.js"></script>    
+        <script src="libs/bootstrap/dist/js/bootstrap.js"></script>    
+        <script src="javascripts/services/ClaymoreService.js"></script>
+        <script src="javascripts/controllers/ClaymoreCtrl.js"></script>          
+    </head>
+    <body>
+        <div id="divContent">
+            <div id="divHeader">
+                <div ui-view="header"></div>
+            </div>
+        
+            <div ui-view="content"></div>
+            <div id="divPush"></div>
+        </div>
+        <div id="divFooter">
+            <div ui-view="footer"></div>
+        </div>
+    <script src="javascripts/appRoutes.js"></script>     
+    </body>
+</html>

@@ -1,0 +1,4 @@
+config/config.js
+logs
+node_modules
+public/libs
