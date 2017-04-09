@@ -28,6 +28,15 @@ app.config(['$stateProvider', '$urlRouterProvider', '$logProvider', function($st
 				}
 			}
 		})
+		.state('yeti.claymore.create', {
+			url: 'create',
+			views: {
+				'content@': {
+					templateUrl: 'views/templates/addClaymore.html',
+					controller: 'ClaymoreCtrl'
+				}
+			}
+		})
 		.state('yeti.claymore.view', {
 			url: ':claymoreId',
 			views: {
@@ -46,6 +55,7 @@ app.config(['$stateProvider', '$urlRouterProvider', '$logProvider', function($st
 				}
 			}
 		})
+		
 
 		//Cats
 		.state('yeti.cats', {

@@ -13,7 +13,7 @@
                 <th></th>
             </thead>
             <tbody>
-            	<tr ng-repeat="claymore in model.claymores">
+            	<tr ng-repeat="claymore in claymores">
                     <th>{{claymore.name}}</th>
                     <th>{{claymore.breed}}</th>
                     <th>{{claymore.cuteness}}</th>
@@ -22,9 +22,12 @@
                     <th>{{claymore.agressiveness}}</th>
                     <th>{{claymore.food}}</th>
                     <th>{{claymore.bestInShow}}</th>
-                    <th></th>  
+                    <th><a class="btn btn-default" ui-sref="yeti.claymore.view({claymoreId: claymore._id})">View</a>
+                        <a class="btn btn-default" ui-sref="yeti.claymore.edit({claymoreId: claymore._id})">Edit</a>
+                    </th>  
                 </tr>
             </tbody>
         </table>
+        <a class="btn btn-default" ui-sref="yeti.claymore.create">Add</a>
 
 </div>

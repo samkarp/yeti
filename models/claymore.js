@@ -6,7 +6,7 @@ var Claymore = db.model('Claymore', {
 	cuteness:        {type: Number, trim: true},
 	smell:           {type: Number, trim: true},
 	color:           {type: String, trim: true},
-	agressiveness:     {type: Number, trim: true},
+	agressiveness:   {type: Number, trim: true},
 	food:            {type: String, trim: true},
 	bestInShow:      {type: Boolean, trim: true},
 	akcDogRanking:   {type: Number, trim: true},

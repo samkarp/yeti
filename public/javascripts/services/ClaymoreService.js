@@ -7,44 +7,51 @@ angular.module('yeti', ['ui.router']).factory('ClaymoreSvc', function($http, $lo
             return $http.get(_baseUrl);
         },
 
-        read : function(){
 
+        read : function(claymoreId) {
+            return $http.get(_baseUrl + '/' + claymoreId);
         },
 
-        update : function(product){ 
+        update : function(claymore){ 
             var paramData = $.param({
-                productTitle: product.productTitle,
-                modelRunTime: product.modelRunTime,
-                forecastId: product.forecastId,
-                approvedBy: null,
-                approved: false,
-                approvedDate: null,
-                lastModified: Date.now(),
-                productLength: product.productLength,
-                aois: product.aois
+                name: claymore.name,
+                breed: claymore.breed,
+                cuteness: claymore.cuteness,
+                smell: claymore.smell,
+                color: claymore.color,
+                agressiveness: claymore.agressiveness,
+                food: claymore.food,
+                bestInShow: claymore.bestInShow,
+                akcDogRanking: claymore.akcDogRanking,
+                personality: claymore.personality,
+                registerYear: claymore.registerYear,
+                colors: claymore.colors
             });
 
             return $http({
-                url: _baseUrl + product._id,
+                url: _baseUrl + '/' + claymore._id,
                 method: 'PUT',
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                 data: paramData
             });
         },
 
-        create : function(product){
+        create : function(claymore){
             var paramData = $.param({
-                productTitle: product.productTitle,
-                modelRunTime: product.modelRunTime,
-                forecastId: product.forecastId,
-                approvedBy: null,
-                approved: false,
-                approvedDate: null,
-                lastModified: Date.now(),
-                productLength: product.productLength,
-                aois: product.aois
+                name: claymore.name,
+                breed: claymore.breed,
+                cuteness: claymore.cuteness,
+                smell: claymore.smell,
+                color: claymore.color,
+                agressiveness: claymore.agressiveness,
+                food: claymore.food,
+                bestInShow: claymore.bestInShow,
+                akcDogRanking: claymore.akcDogRanking,
+                personality: claymore.personality,
+                registerYear: claymore.registerYear,
+                colors: claymore.colors
             });
-            
+
             return $http({
                 url: _baseUrl,
                 method: 'POST',
@@ -53,8 +60,8 @@ angular.module('yeti', ['ui.router']).factory('ClaymoreSvc', function($http, $lo
             });
         },
 
-        delete: function(product){
-            return $http.delete(_baseUrl + product._id)
+        delete: function(claymore){
+            return $http.delete(_baseUrl + '/' +claymore._id)
         }
 
 
