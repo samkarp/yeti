@@ -1,0 +1,20 @@
+<div class="container">
+	<h1>{{orabelle.name}}</h1>
+	<hr/>
+	<div class="row">
+		<div class="col-md-4"><span>Name: </span><span>{{orabelle.name}}</span></div>
+		<div class="col-md-4"><span>IBU: </span><span>{{orabelle.ibu}}</span></div>
+		<div class="col-md-4"><span>ABV: </span><span>{{orabelle.abv}}</span></div>
+	</div>
+	<div class="row">
+		<div class="col-md-4"><span>Brand: </span><span>{{orabelle.brand}}</span></div>
+		<div class="col-md-4"><span>Price: </span><span>{{orabelle.price}}</span></div>
+		<div class="col-md-4"><span>Aroma: </span><span>{{orabelle.aroma}}</span></div>
+	</div>
+	<div class="row">
+		<div class="col-md-4"><span>Bitterness: </span><span>{{orabelle.bitterness}}</span></div>
+	</div>
+	<div class="row">
+		<a class="btn btn-default" ui-sref="yeti.orabelle.edit({orabelleId: orabelle._id})">Edit</a>
+	</div>
+</div>

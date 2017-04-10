@@ -1,0 +1,31 @@
+<div class="container">
+	<h1>Orabelle</h1>
+		<table class="table table-striped">
+            <thead>
+                <th>Name</th>
+                <th>IBU</th>
+                <th>ABV</th>
+                <th>Brand</th>
+                <th>Price</th>
+                <th>Aroma</th>
+                <th>Biterness</th>
+                <th></th>
+            </thead>
+            <tbody>
+            	<tr ng-repeat="orabelle in orabelles">
+                    <th>{{orabelle.name}}</th>
+                    <th>{{orabelle.ibu}}</th>
+                    <th>{{orabelle.abv}}</th>
+                    <th>{{orabelle.brand}}</th>
+                    <th>{{orabelle.price}}</th>
+                    <th>{{orabelle.aroma}}</th>
+                    <th>{{orabelle.bitterness}}</th>
+                    <th><a class="btn btn-default" ui-sref="yeti.orabelle.view({orabelleId: orabelle._id})">View</a>
+                        <a class="btn btn-default" ui-sref="yeti.orabelle.edit({orabelleId: orabelle._id})">Edit</a>
+                    </th>  
+                </tr>
+            </tbody>
+        </table>
+        <a class="btn btn-default" ui-sref="yeti.orabelle.create">Add</a>
+
+</div>

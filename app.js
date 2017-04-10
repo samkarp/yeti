@@ -6,7 +6,7 @@ var cors = require('cors');
 var http = require('http');
 var logger = require('./config/log.js');
 
-var cats = require('./routes/cat');
+var orabelle = require('./routes/orabelle');
 var claymore = require('./routes/claymore');
 var elephants = require('./routes/elephant');
 var monkeys = require('./routes/monkey');
@@ -32,12 +32,12 @@ app.put('/api/claymore/:claymoreId', claymore.update);
 app.delete('/api/claymore/:claymoreId', claymore.delete);
 app.param('claymoreId', claymore.claymoreById);
 
-app.get('/api/cats', cats.list);
-app.post('/api/cats', cats.create);
-app.get('/api/cats/:catId', cats.read);
-app.put('/api/cats/:catId', cats.update);
-app.delete('/api/cats/:catId', cats.delete);
-app.param('catId', cats.catById);
+app.get('/api/orabelle', orabelle.list);
+app.post('/api/orabelle', orabelle.create);
+app.get('/api/orabelle/:orabelleId', orabelle.read);
+app.put('/api/orabelle/:orabelleId', orabelle.update);
+app.delete('/api/orabelle/:orabelleId', orabelle.delete);
+app.param('orabelleId', orabelle.orabelleById);
 
 app.get('/api/elephants', elephants.list);
 app.post('/api/elephants', elephants.create);

@@ -57,31 +57,40 @@ app.config(['$stateProvider', '$urlRouterProvider', '$logProvider', function($st
 		})
 		
 
-		//Cats
-		.state('yeti.cats', {
-			url: 'cats/',
+		//Orabelle
+		.state('yeti.orabelle', {
+			url: 'orabelle/',
 			views: {
 				'content@': {
-					templateUrl: 'views/cats.html',
-					controller: 'CatCtrl'
+					templateUrl: 'views/orabelle.html',
+					controller: 'OrabelleCtrl'
 				}
 			}
 		})
-		.state('yeti.cats.view', {
-			url: ':catId',
+		.state('yeti.orabelle.create', {
+			url: 'create',
 			views: {
 				'content@': {
-					templateUrl: 'views/templates/viewCat.html',
-					controller: 'CatCtrl'
+					templateUrl: 'views/templates/addOrabelle.html',
+					controller: 'OrabelleCtrl'
 				}
 			}
 		})
-		.state('yeti.cats.edit', {
-			url: 'edit/:catId',
+		.state('yeti.orabelle.view', {
+			url: ':orabelleId',
 			views: {
 				'content@': {
-					templateUrl: 'views/templates/editCat.html',
-					controller: 'CatCtrl'
+					templateUrl: 'views/templates/viewOrabelle.html',
+					controller: 'OrabelleCtrl'
+				}
+			}
+		})
+		.state('yeti.orabelle.edit', {
+			url: 'edit/:orabelleId',
+			views: {
+				'content@': {
+					templateUrl: 'views/templates/editOrabelle.html',
+					controller: 'OrabelleCtrl'
 				}
 			}
 		})
