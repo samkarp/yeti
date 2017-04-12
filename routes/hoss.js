@@ -1,4 +1,4 @@
-var Elephant = require('../models/elephant');
+var Hoss = require('../models/hoss');
 var logger = require('../config/log.js');
 
 var getErrorMessage = function(err){
@@ -11,76 +11,83 @@ var getErrorMessage = function(err){
 }
 
 exports.create = function(req, res, next){
-	var elephant = new Elephant(req.body);
+	var hoss = new Hoss(req.body);
   console.log(req.body);
-	elephant.save(function(err){
-    logger.info("Just saved a Elephant");
+	hoss.save(function(err){
+    logger.info("Just saved a Hoss");
 		if (err){
-			return res.status(400).send({
+			console.log(err);
+      return res.status(400).send({
 				message: getErrorMessage(err)
 			});
 		} else {
-			res.json(elephant);
+			res.json(hoss);
 		}
 	});
 };
 
 exports.list = function(req, res){
-  logger.info("getting all those sweet elephants");
-	Elephant.find(req.query).sort('-name')
-		.exec(function(err, elephants){
+  logger.info("getting all those sweet hosss");
+	Hoss.find(req.query).sort('-name')
+		.exec(function(err, hoss){
 			if (err) {
 				return res.status(400).send({
 					message: getErrorMessage(err)
 				});
 			} else {
-				res.json(elephants);
+				res.json(hoss);
 			}
 		});
 };
 
-exports.elephantById = function(req, res, next, id) {
-  Elephant.findById(id).exec(function(err, elephant) {
+exports.hossById = function(req, res, next, id) {
+  Hoss.findById(id).exec(function(err, hoss) {
     if (err) return next(err);
-    if (!elephant) return next(new Error('Failed to load elephant ' + id));
+    if (!hoss) return next(new Error('Failed to load hoss ' + id));
 
-    req.elephant = elephant;
+    req.hoss = hoss;
     next();
   });
 };
 
 exports.read = function(req, res) {
-  res.json(req.elephant);
+  res.json(req.hoss);
 };
 
 exports.update = function(req, res) {
-  logger.info("updating a elephant from " + req.connection.remoteAddress);
-  var elephant = req.elephant;
+  logger.info("updating a hoss from " + req.connection.remoteAddress);
+  var hoss = req.hoss;
 
-  elephant.name = req.body.name;
+  hoss.name = req.body.name;
+  hoss.oliver = req.body.oliver;
+  hoss.stewart = req.body.stewart;
+  hoss.klepper = req.body.klepper;
+  hoss.colbert = req.body.colbert;
+  hoss.meyers = req.body.meyers;
+  hoss.kimmel = req.body.kimmel;
   //TODO add more fields here
 
-  elephant.save(function(err) {
+  hoss.save(function(err) {
     if (err) {
       return res.status(400).send({
         message: getErrorMessage(err)
       });
     } else {
-      res.json(elephant);
+      res.json(hoss);
     }
   });
 };
 
 exports.delete = function(req, res) {
-  var elephant = req.elephant;
+  var hoss = req.hoss;
 
-  elephant.remove(function(err) {
+  hoss.remove(function(err) {
     if (err) {
       return res.status(400).send({
         message: getErrorMessage(err)
       });
     } else {
-      res.json(elephant);
+      res.json(hoss);
     }
   });
 };

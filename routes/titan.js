@@ -1,4 +1,4 @@
-var Monkey = require('../models/monkey');
+var Titan = require('../models/titan');
 var logger = require('../config/log.js');
 
 var getErrorMessage = function(err){
@@ -11,76 +11,82 @@ var getErrorMessage = function(err){
 }
 
 exports.create = function(req, res, next){
-	var monkey = new Monkey(req.body);
+	var titan = new Titan(req.body);
   console.log(req.body);
-	monkey.save(function(err){
-    logger.info("Just saved a Monkey");
+	titan.save(function(err){
+    logger.info("Just saved a Titan");
 		if (err){
 			return res.status(400).send({
 				message: getErrorMessage(err)
 			});
 		} else {
-			res.json(monkey);
+			res.json(titan);
 		}
 	});
 };
 
 exports.list = function(req, res){
-  logger.info("getting all those sweet monkeys");
-	Monkey.find(req.query).sort('-name')
-		.exec(function(err, monkeys){
+  logger.info("getting all those sweet titans");
+	Titan.find(req.query).sort('-name')
+		.exec(function(err, titans){
 			if (err) {
 				return res.status(400).send({
 					message: getErrorMessage(err)
 				});
 			} else {
-				res.json(monkeys);
+				res.json(titans);
 			}
 		});
 };
 
-exports.monkeyById = function(req, res, next, id) {
-  Monkey.findById(id).exec(function(err, monkey) {
+exports.titanById = function(req, res, next, id) {
+  Titan.findById(id).exec(function(err, titan) {
     if (err) return next(err);
-    if (!monkey) return next(new Error('Failed to load monkey ' + id));
+    if (!titan) return next(new Error('Failed to load titan ' + id));
 
-    req.monkey = monkey;
+    req.titan = titan;
     next();
   });
 };
 
 exports.read = function(req, res) {
-  res.json(req.monkey);
+  res.json(req.titan);
 };
 
 exports.update = function(req, res) {
-  logger.info("updating a monkey from " + req.connection.remoteAddress);
-  var monkey = req.monkey;
+  logger.info("updating a titan from " + req.connection.remoteAddress);
+  var titan = req.titan;
 
-  monkey.name = req.body.name;
+  titan.name = req.body.name;
   //TODO add more fields here
+  titan.marte = req.body.marte;
+  titan.mccutchen = req.body.mccutchen;
+  titan.cole = req.body.cole;
+  titan.glasnow = req.body.glasnow;
+  titan.freese = req.body.freese;
+  titan.kang = req.body.kang;
 
-  monkey.save(function(err) {
+  titan.save(function(err) {
     if (err) {
       return res.status(400).send({
         message: getErrorMessage(err)
       });
     } else {
-      res.json(monkey);
+      res.json(titan);
     }
   });
 };
 
 exports.delete = function(req, res) {
-  var monkey = req.monkey;
+  var titan = req.titan;
 
-  monkey.remove(function(err) {
+  titan.remove(function(err) {
     if (err) {
       return res.status(400).send({
         message: getErrorMessage(err)
       });
     } else {
-      res.json(monkey);
+      res.json(titan);
     }
   });
 };

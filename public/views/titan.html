@@ -1,0 +1,31 @@
+<div class="container">
+	<h1>Titan</h1>
+		<table class="table table-striped">
+            <thead>
+                <th>Name</th>
+                <th>Marte</th>
+                <th>McCutchen</th>
+                <th>Cole</th>
+                <th>Glasnow</th>
+                <th>Freese</th>
+                <th>Kang</th>
+                <th></th>
+            </thead>
+            <tbody>
+            	<tr ng-repeat="titan in titans">
+                    <th>{{titan.name}}</th>
+                    <th>{{titan.marte}}</th>
+                    <th>{{titan.mccutchen}}</th>
+                    <th>{{titan.cole}}</th>
+                    <th>{{titan.glasnow}}</th>
+                    <th>{{titan.freese}}</th>
+                    <th>{{titan.kang}}</th>
+                    <th><a class="btn btn-default" ui-sref="yeti.titan.view({titanId: titan._id})">View</a>
+                        <a class="btn btn-default" ui-sref="yeti.titan.edit({titanId: titan._id})">Edit</a>
+                    </th>  
+                </tr>
+            </tbody>
+        </table>
+        <a class="btn btn-default" ui-sref="yeti.titan.create">Add</a>
+
+</div>

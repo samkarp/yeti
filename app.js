@@ -8,8 +8,8 @@ var logger = require('./config/log.js');
 
 var orabelle = require('./routes/orabelle');
 var claymore = require('./routes/claymore');
-var elephants = require('./routes/elephant');
-var monkeys = require('./routes/monkey');
+var hoss = require('./routes/hoss');
+var titan = require('./routes/titan');
 
 var app = express();
 
@@ -39,19 +39,19 @@ app.put('/api/orabelle/:orabelleId', orabelle.update);
 app.delete('/api/orabelle/:orabelleId', orabelle.delete);
 app.param('orabelleId', orabelle.orabelleById);
 
-app.get('/api/elephants', elephants.list);
-app.post('/api/elephants', elephants.create);
-app.get('/api/elephants/:elephantId', elephants.read);
-app.put('/api/elephants/:elephantId', elephants.update);
-app.delete('/api/elephants/:elephantId', elephants.delete);
-app.param('elephantId', elephants.elephantById);
+app.get('/api/hoss', hoss.list);
+app.post('/api/hoss', hoss.create);
+app.get('/api/hoss/:hossId', hoss.read);
+app.put('/api/hoss/:hossId', hoss.update);
+app.delete('/api/hoss/:hossId', hoss.delete);
+app.param('hossId', hoss.hossById);
 
-app.get('/api/monkeys', monkeys.list);
-app.post('/api/monkeys', monkeys.create);
-app.get('/api/monkeys/:monkeyId', monkeys.read);
-app.put('/api/monkeys/:monkeyId', monkeys.update);
-app.delete('/api/monkeys/:monkeyId', monkeys.delete);
-app.param('monkeyId', monkeys.monkeyById);
+app.get('/api/titan', titan.list);
+app.post('/api/titan', titan.create);
+app.get('/api/titan/:titanId', titan.read);
+app.put('/api/titan/:titanId', titan.update);
+app.delete('/api/titan/:titanId', titan.delete);
+app.param('titanId', titan.titanById);
 
 if (app.get('env') === 'development') {
   app.use(function(err, req, res, next) {

@@ -1,0 +1,31 @@
+<div class="container">
+	<h1>Hoss</h1>
+		<table class="table table-striped">
+            <thead>
+                <th>Name</th>
+                <th>Oliver</th>
+                <th>Stewart</th>
+                <th>Colbert</th>
+                <th>Klepper</th>
+                <th>Meyers</th>
+                <th>Kimmel</th>
+                <th></th>
+            </thead>
+            <tbody>
+            	<tr ng-repeat="hoss in hosses">
+                    <th>{{hoss.name}}</th>
+                    <th>{{hoss.oliver}}</th>
+                    <th>{{hoss.stewart}}</th>
+                    <th>{{hoss.colbert}}</th>
+                    <th>{{hoss.klepper}}</th>
+                    <th>{{hoss.meyers}}</th>
+                    <th>{{hoss.kimmel}}</th>
+                    <th><a class="btn btn-default" ui-sref="yeti.hoss.view({hossId: hoss._id})">View</a>
+                        <a class="btn btn-default" ui-sref="yeti.hoss.edit({hossId: hoss._id})">Edit</a>
+                    </th>  
+                </tr>
+            </tbody>
+        </table>
+        <a class="btn btn-default" ui-sref="yeti.hoss.create">Add</a>
+
+</div>

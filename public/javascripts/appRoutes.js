@@ -96,59 +96,77 @@ app.config(['$stateProvider', '$urlRouterProvider', '$logProvider', function($st
 		})
 
 		//Elephants
-		.state('yeti.elephants', {
-			url: 'elephants/',
+		.state('yeti.hoss', {
+			url: 'hoss/',
 			views: {
 				'content@': {
-					templateUrl: 'views/cats.html',
-					controller: 'CatCtrl'
+					templateUrl: 'views/hoss.html',
+					controller: 'HossCtrl'
 				}
 			}
 		})
-		.state('yeti.elephants.view', {
-			url: ':elephantId',
+		.state('yeti.hoss.create', {
+			url: 'create',
 			views: {
 				'content@': {
-					templateUrl: 'views/templates/viewElephant.html',
-					controller: 'ElephantCtrl'
+					templateUrl: 'views/templates/addHoss.html',
+					controller: 'HossCtrl'
 				}
 			}
 		})
-		.state('yeti.elephants.edit', {
-			url: 'edit/:elephantId',
+		.state('yeti.hoss.view', {
+			url: ':hossId',
 			views: {
 				'content@': {
-					templateUrl: 'views/templates/editElephant.html',
-					controller: 'ElephantCtrl'
+					templateUrl: 'views/templates/viewHoss.html',
+					controller: 'HossCtrl'
+				}
+			}
+		})
+		.state('yeti.hoss.edit', {
+			url: 'edit/:hossId',
+			views: {
+				'content@': {
+					templateUrl: 'views/templates/editHoss.html',
+					controller: 'HossCtrl'
 				}
 			}
 		})
 
 		//Monkeys
-		.state('yeti.monkeys', {
-			url: 'monkeys/',
+				.state('yeti.titan', {
+			url: 'titan/',
 			views: {
 				'content@': {
-					templateUrl: 'views/cats.html',
-					controller: 'MonkeyCtrl'
+					templateUrl: 'views/titan.html',
+					controller: 'TitanCtrl'
 				}
 			}
 		})
-		.state('yeti.monkeys.view', {
-			url: ':monkeyId',
+		.state('yeti.titan.create', {
+			url: 'create',
 			views: {
 				'content@': {
-					templateUrl: 'views/templates/viewMonkey.html',
-					controller: 'MonkeyCtrl'
+					templateUrl: 'views/templates/addTitan.html',
+					controller: 'TitanCtrl'
 				}
 			}
 		})
-		.state('yeti.monkeys.edit', {
-			url: 'edit/:monkeyId',
+		.state('yeti.titan.view', {
+			url: ':titanId',
 			views: {
 				'content@': {
-					templateUrl: 'views/templates/editMonkey.html',
-					controller: 'MonkeyCtrl'
+					templateUrl: 'views/templates/viewTitan.html',
+					controller: 'TitanCtrl'
+				}
+			}
+		})
+		.state('yeti.titan.edit', {
+			url: 'edit/:titanId',
+			views: {
+				'content@': {
+					templateUrl: 'views/templates/editTitan.html',
+					controller: 'TitanCtrl'
 				}
 			}
 		})
