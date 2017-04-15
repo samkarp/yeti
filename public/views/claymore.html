@@ -1,6 +1,6 @@
 <div class="container">
 	<h1>Claymore</h1>
-		<table class="table table-striped">
+		<table datatable="ng" dt-options="dtOptions" class="table table-striped">
             <thead>
                 <th>Name</th>
                 <th>Breed</th>
@@ -10,7 +10,7 @@
                 <th>Agressiveness</th>
                 <th>Food</th>
                 <th>Best in Show</th>
-                <th></th>
+                <th data-orderable="false"></th>
             </thead>
             <tbody>
             	<tr ng-repeat="claymore in claymores">

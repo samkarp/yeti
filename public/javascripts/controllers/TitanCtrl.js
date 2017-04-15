@@ -1,6 +1,7 @@
 angular.module('yeti').controller("TitanCtrl", function ($scope, $window, $http, TitanSvc, $log, $stateParams, $state) {
         $log.debug('hi there titan ctrl file man');
         $scope.model = {};
+        $scope.dtOptions = {"paging": false, "order":[1, 'desc'], 'bInfo': false};
 
         TitanSvc.get().then(function(res){
                 $scope.titans = res.data;   

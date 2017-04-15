@@ -1,4 +1,4 @@
-angular.module('yeti', ['ui.router']).factory('ClaymoreSvc', function($http, $log){
+angular.module('yeti', ['ui.router', 'datatables', 'datatables.bootstrap']).factory('ClaymoreSvc', function($http, $log){
     $log.debug('hi there from claymore svc');
     var _baseUrl = 'http://localhost:3000/api/claymore';
 

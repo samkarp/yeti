@@ -1,6 +1,7 @@
 angular.module('yeti').controller("HossCtrl", function ($scope, $window, $http, HossSvc, $log, $stateParams, $state) {
         $log.debug('hi there hoss ctrl file man');
         $scope.model = {};
+        $scope.dtOptions = {"paging": false, "order":[1, 'desc'], 'bInfo': false};
 
         HossSvc.get().then(function(res){
                 $scope.hosses = res.data;   

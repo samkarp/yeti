@@ -1,6 +1,7 @@
 angular.module('yeti').controller("OrabelleCtrl", function ($scope, $window, $http, OrabelleSvc, $log, $stateParams, $state) {
         $log.debug('hi there orabelle ctrl file man');
         $scope.model = {};
+        $scope.dtOptions = {"paging": false, "order":[1, 'desc'], 'bInfo': false};
 
         OrabelleSvc.get().then(function(res){
                 $scope.orabelles = res.data;   

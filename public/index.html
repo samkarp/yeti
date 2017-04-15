@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <title>YETI</title>
         <link type="text/css" href="libs/bootstrap/dist/css/bootstrap.css" rel="stylesheet"/>
+        <link type="text/css" href="libs/angular-datatables/dist/plugins/bootstrap/datatables.bootstrap.min.css" rel="stylesheet"/>
         <style>
             .center { text-align: center;}
             .notice { color: red;}
@@ -35,8 +36,11 @@
                 width: 100%;
             }
         </style>
-        <script src="libs/jquery/dist/jquery.js"></script>      
+        <script src="libs/jquery/dist/jquery.js"></script>  
+        <script src="libs/datatables.net/js/jquery.dataTables.js"></script>    
         <script src="libs/angular/angular.js"></script>
+        <script src="libs/angular-datatables/dist/angular-datatables.js"></script>
+        <script src="libs/angular-datatables/dist/plugins/bootstrap/angular-datatables.bootstrap.js"></script>
         <script src="libs/angular-simple-logger/dist/angular-simple-logger.js"></script>
         <script src="libs/angular-ui-router/release/angular-ui-router.js"></script>  
         <script src="libs/angular-ui/build/angular-ui.js"></script>    
@@ -48,7 +52,7 @@
         <script src="javascripts/services/HossService.js"></script>
         <script src="javascripts/controllers/HossCtrl.js"></script> 
         <script src="javascripts/services/TitanService.js"></script>
-        <script src="javascripts/controllers/TitanCtrl.js"></script>           
+        <script src="javascripts/controllers/TitanCtrl.js"></script>          
     </head>
     <body>
         <div id="divContent">

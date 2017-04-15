@@ -1,6 +1,6 @@
 <div class="container">
 	<h1>Orabelle</h1>
-		<table class="table table-striped">
+		<table datatable="ng" dt-options="dtOptions" class="table table-striped">
             <thead>
                 <th>Name</th>
                 <th>IBU</th>
@@ -9,7 +9,7 @@
                 <th>Price</th>
                 <th>Aroma</th>
                 <th>Biterness</th>
-                <th></th>
+                <th data-orderable="false"></th>
             </thead>
             <tbody>
             	<tr ng-repeat="orabelle in orabelles">

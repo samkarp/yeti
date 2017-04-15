@@ -1,6 +1,6 @@
 <div class="container">
 	<h1>Titan</h1>
-		<table class="table table-striped">
+		<table datatable="ng" dt-options="dtOptions" class="table table-striped">
             <thead>
                 <th>Name</th>
                 <th>Marte</th>
@@ -9,7 +9,7 @@
                 <th>Glasnow</th>
                 <th>Freese</th>
                 <th>Kang</th>
-                <th></th>
+                <th data-orderable="false"></th>
             </thead>
             <tbody>
             	<tr ng-repeat="titan in titans">

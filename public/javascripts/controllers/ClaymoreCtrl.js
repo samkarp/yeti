@@ -1,6 +1,7 @@
 angular.module('yeti').controller("ClaymoreCtrl", function ($scope, $window, $http, ClaymoreSvc, $log, $stateParams, $state) {
         $log.debug('hi there claymore ctrl file man');
         $scope.model = {};
+        $scope.dtOptions = {"paging": false, "order":[1, 'desc'], 'bInfo': false};
 
         ClaymoreSvc.get().then(function(res){
                 $scope.claymores = res.data;   
