@@ -40,6 +40,20 @@ exports.list = function(req, res){
 		});
 };
 
+exports.skinnyHoss = function(req,res){
+  logger.info("getting some skinny hosses");
+  Hoss.find(req.query).select('_id name colbert meyers')
+    .exec(function(err, hoss){
+      if (err) {
+        return res.status(400).send({
+          message: getErrorMessage(err)
+        });
+      } else {
+        res.json(hoss);
+      }
+    });
+}
+
 exports.hossById = function(req, res, next, id) {
   Hoss.findById(id).exec(function(err, hoss) {
     if (err) return next(err);

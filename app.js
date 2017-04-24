@@ -15,7 +15,6 @@ var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
 
 app.set('port', process.env.PORT || 3000);
 
@@ -26,6 +25,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors());
 
 app.get('/api/claymore', claymore.list);
+app.get('/api/claymore/skinny', claymore.skinnyClaymore);
 app.post('/api/claymore', claymore.create);
 app.get('/api/claymore/:claymoreId', claymore.read);
 app.put('/api/claymore/:claymoreId', claymore.update);
@@ -33,6 +33,7 @@ app.delete('/api/claymore/:claymoreId', claymore.delete);
 app.param('claymoreId', claymore.claymoreById);
 
 app.get('/api/orabelle', orabelle.list);
+app.get('/api/orabelle/skinny', orabelle.skinnyOrabelle);
 app.post('/api/orabelle', orabelle.create);
 app.get('/api/orabelle/:orabelleId', orabelle.read);
 app.put('/api/orabelle/:orabelleId', orabelle.update);
@@ -40,6 +41,7 @@ app.delete('/api/orabelle/:orabelleId', orabelle.delete);
 app.param('orabelleId', orabelle.orabelleById);
 
 app.get('/api/hoss', hoss.list);
+app.get('/api/hoss/skinny', hoss.skinnyHoss);
 app.post('/api/hoss', hoss.create);
 app.get('/api/hoss/:hossId', hoss.read);
 app.put('/api/hoss/:hossId', hoss.update);
@@ -47,6 +49,7 @@ app.delete('/api/hoss/:hossId', hoss.delete);
 app.param('hossId', hoss.hossById);
 
 app.get('/api/titan', titan.list);
+app.get('/api/titan/skinny', titan.skinnyTitan);
 app.post('/api/titan', titan.create);
 app.get('/api/titan/:titanId', titan.read);
 app.put('/api/titan/:titanId', titan.update);

@@ -25,7 +25,8 @@ angular.module('yeti', ['ui.router', 'datatables', 'datatables.bootstrap']).fact
                 akcDogRanking: claymore.akcDogRanking,
                 personality: claymore.personality,
                 registerYear: claymore.registerYear,
-                colors: claymore.colors
+                colors: claymore.colors,
+                hoss: claymore.hoss
             });
 
             return $http({
@@ -49,7 +50,8 @@ angular.module('yeti', ['ui.router', 'datatables', 'datatables.bootstrap']).fact
                 akcDogRanking: claymore.akcDogRanking,
                 personality: claymore.personality,
                 registerYear: claymore.registerYear,
-                colors: claymore.colors
+                colors: claymore.colors,
+                hoss: claymore.hoss
             });
 
             return $http({

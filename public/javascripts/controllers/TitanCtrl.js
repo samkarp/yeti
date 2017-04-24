@@ -1,10 +1,16 @@
-angular.module('yeti').controller("TitanCtrl", function ($scope, $window, $http, TitanSvc, $log, $stateParams, $state) {
+angular.module('yeti').controller("TitanCtrl", function ($scope, $window, $http, TitanSvc, $log, $stateParams, $state, HossSvc) {
         $log.debug('hi there titan ctrl file man');
         $scope.model = {};
         $scope.dtOptions = {"paging": false, "order":[1, 'desc'], 'bInfo': false};
+        $scope.hossGroupByOptions = ['colbert','meyers'];
+        $scope.hossGroupBy = 'colbert';
 
         TitanSvc.get().then(function(res){
                 $scope.titans = res.data;   
+        });
+
+        HossSvc.getSkinny().then(function(res){
+            $scope.availableHoss = res.data;
         });
 
        if ($stateParams.titanId) {
@@ -12,6 +18,12 @@ angular.module('yeti').controller("TitanCtrl", function ($scope, $window, $http,
             TitanSvc.read($stateParams.titanId).then(function(res){
                 $scope.titan = res.data;
             })
+        };
+
+        $scope.getTemplate = function () {
+            console.log($scope.hossGroupBy);
+            if ($scope.hossGroupBy == "colbert") return 'colbert';
+            else return 'meyers';
         };
 
         $scope.saveTitan = function (titan) {

@@ -1,10 +1,16 @@
-angular.module('yeti').controller("ClaymoreCtrl", function ($scope, $window, $http, ClaymoreSvc, $log, $stateParams, $state) {
+angular.module('yeti').controller("ClaymoreCtrl", function ($scope, $window, $http, ClaymoreSvc, HossSvc, $log, $stateParams, $state) {
         $log.debug('hi there claymore ctrl file man');
         $scope.model = {};
         $scope.dtOptions = {"paging": false, "order":[1, 'desc'], 'bInfo': false};
+        $scope.hossGroupByOptions = ['colbert','meyers'];
+        $scope.hossGroupBy = 'colbert';
 
         ClaymoreSvc.get().then(function(res){
                 $scope.claymores = res.data;   
+        });
+
+        HossSvc.getSkinny().then(function(res){
+            $scope.availableHoss = res.data;
         });
 
        if ($stateParams.claymoreId) {
@@ -12,6 +18,12 @@ angular.module('yeti').controller("ClaymoreCtrl", function ($scope, $window, $ht
             ClaymoreSvc.read($stateParams.claymoreId).then(function(res){
                 $scope.claymore = res.data;
             })
+        };
+
+        $scope.getTemplate = function () {
+            console.log($scope.hossGroupBy);
+            if ($scope.hossGroupBy == "colbert") return 'colbert';
+            else return 'meyers';
         };
 
         $scope.saveClaymore = function (claymore) {
@@ -31,6 +43,7 @@ angular.module('yeti').controller("ClaymoreCtrl", function ($scope, $window, $ht
 
         $scope.addClaymore = function () {
             console.log("Adding Claymore");
+            console.log($scope.claymore);
             ClaymoreSvc.create($scope.claymore)
                 .then(function(response){
                     $state.go('yeti.claymore');

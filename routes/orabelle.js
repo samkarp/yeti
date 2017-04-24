@@ -40,6 +40,20 @@ exports.list = function(req, res){
 		});
 };
 
+exports.skinnyOrabelle = function(req,res){
+  logger.info("getting some skinny orabelle");
+  Orabelle.find(req.query).select('_id name')
+    .exec(function(err, orabelle){
+      if (err) {
+        return res.status(400).send({
+          message: getErrorMessage(err)
+        });
+      } else {
+        res.json(orabelle);
+      }
+    });
+}
+
 exports.orabelleById = function(req, res, next, id) {
   Orabelle.findById(id).exec(function(err, orabelle) {
     if (err) return next(err);

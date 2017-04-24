@@ -32,6 +32,17 @@
 
     	<label for="Register Year">Register Year</label>
     	<input type="text" class="form-control" ng-model="claymore.registerYear" placeholder="Register Year">
+
+        <label for="Hoss">Hoss</label>
+        <select data-placeholder="Group Hosses by..." class="chzn-select" chosen ng-model="hossGroupBy" ng-options="o as o for o in hossGroupByOptions"></select>
+        
+        <div ng-include="getTemplate()"></div>
+        <script type="text/ng-template" id="colbert">
+            <select data-placeholder="Select Hosses" multiple class="chzn-select" chosen ng-model="claymore.hoss" ng-options="hoss._id as hoss.name group by hoss.colbert for hoss in availableHoss"></select>
+        </script>
+        <script type="text/ng-template" id="meyers">
+            <select data-placeholder="Select Hosses" multiple class="chzn-select" chosen ng-model="claymore.hoss" ng-options="hoss._id as hoss.name group by hoss.meyers for hoss in availableHoss"></select>
+        </script>
   	</div>
 	<div class="row">
 		<a class="btn btn-default" ng-click="saveClaymore()">Save</a>

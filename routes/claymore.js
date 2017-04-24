@@ -41,6 +41,20 @@ exports.list = function(req, res){
 		});
 };
 
+exports.skinnyClaymore = function(req,res){
+  logger.info("getting some skinny claymore");
+  Claymore.find(req.query).select('_id name')
+    .exec(function(err, claymore){
+      if (err) {
+        return res.status(400).send({
+          message: getErrorMessage(err)
+        });
+      } else {
+        res.json(claymore);
+      }
+    });
+}
+
 exports.claymoreById = function(req, res, next, id) {
   Claymore.findById(id).exec(function(err, claymore) {
     if (err) return next(err);
@@ -71,6 +85,7 @@ exports.update = function(req, res) {
   claymore.personality = req.body.personality;
   claymore.registerYear = req.body.registerYear;
   claymore.colors = req.body.colors;
+  claymore.hoss = req.body.hoss;
   //TODO add more fields here
 
   claymore.save(function(err) {

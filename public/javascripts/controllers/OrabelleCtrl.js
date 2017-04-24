@@ -1,10 +1,16 @@
-angular.module('yeti').controller("OrabelleCtrl", function ($scope, $window, $http, OrabelleSvc, $log, $stateParams, $state) {
+angular.module('yeti').controller("OrabelleCtrl", function ($scope, $window, $http, OrabelleSvc, $log, $stateParams, $state, HossSvc) {
         $log.debug('hi there orabelle ctrl file man');
         $scope.model = {};
         $scope.dtOptions = {"paging": false, "order":[1, 'desc'], 'bInfo': false};
+        $scope.hossGroupByOptions = ['colbert','meyers'];
+        $scope.hossGroupBy = 'colbert';
 
         OrabelleSvc.get().then(function(res){
                 $scope.orabelles = res.data;   
+        });
+
+        HossSvc.getSkinny().then(function(res){
+            $scope.availableHoss = res.data;
         });
 
        if ($stateParams.orabelleId) {
@@ -12,6 +18,12 @@ angular.module('yeti').controller("OrabelleCtrl", function ($scope, $window, $ht
             OrabelleSvc.read($stateParams.orabelleId).then(function(res){
                 $scope.orabelle = res.data;
             })
+        };
+
+        $scope.getTemplate = function () {
+            console.log($scope.hossGroupBy);
+            if ($scope.hossGroupBy == "colbert") return 'colbert';
+            else return 'meyers';
         };
 
         $scope.saveOrabelle = function (orabelle) {

@@ -12,7 +12,8 @@ var Claymore = db.model('Claymore', {
 	akcDogRanking:   {type: Number, trim: true},
 	personality:     {type: String, trim: true},
 	registerYear:    {type: String, trim: true},
-	colors:          {type: [String], trim: true}
+	colors:          {type: [String], trim: true},
+	hoss:            {type: [String], trim: true} 
 });
 
 module.exports = Claymore;

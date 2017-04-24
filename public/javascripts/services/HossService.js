@@ -7,6 +7,10 @@ angular.module('yeti').factory('HossSvc', function($http, $log){
             return $http.get(_baseUrl);
         },
 
+        getSkinny : function(){
+            return $http.get(_baseUrl + '/skinny');
+        },
+
 
         read : function(hossId) {
             return $http.get(_baseUrl + '/' + hossId);

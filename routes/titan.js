@@ -39,6 +39,20 @@ exports.list = function(req, res){
 		});
 };
 
+exports.skinnyTitan = function(req,res){
+  logger.info("getting some skinny titan");
+  Titan.find(req.query).select('_id name')
+    .exec(function(err, titan){
+      if (err) {
+        return res.status(400).send({
+          message: getErrorMessage(err)
+        });
+      } else {
+        res.json(titan);
+      }
+    });
+}
+
 exports.titanById = function(req, res, next, id) {
   Titan.findById(id).exec(function(err, titan) {
     if (err) return next(err);
