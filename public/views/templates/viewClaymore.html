@@ -1,5 +1,6 @@
-<div class="container">
-	<h1>{{claymore.name}}</h1>
+<div class="container view-content">
+	<div class="pad"></div>
+	<h1 class="page-title2">{{claymore.name}}</h1>
 	<hr/>
 	<div class="row">
 		<div class="col-md-4"><span>Name: </span><span>{{claymore.name}}</span></div>
@@ -21,6 +22,6 @@
 		<div class="col-md-4"><span>Register Year: </span><span>{{claymore.registerYear}}</span></div>
 	</div>
 	<div class="row">
-		<a class="btn btn-default" ui-sref="yeti.claymore.edit({claymoreId: claymore._id})">Edit</a>
+		<a class="btn btn-default edit-style" ui-sref="yeti.claymore.edit({claymoreId: claymore._id})">Edit</a>
 	</div>
 </div>

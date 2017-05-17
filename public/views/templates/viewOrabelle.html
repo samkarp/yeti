@@ -1,5 +1,6 @@
-<div class="container">
-	<h1>{{orabelle.name}}</h1>
+<div class="container view-content">
+	<div class="pad"></div>
+	<h1 class="page-title2">{{orabelle.name}}</h1>
 	<hr/>
 	<div class="row">
 		<div class="col-md-4"><span>Name: </span><span>{{orabelle.name}}</span></div>
@@ -15,6 +16,6 @@
 		<div class="col-md-4"><span>Bitterness: </span><span>{{orabelle.bitterness}}</span></div>
 	</div>
 	<div class="row">
-		<a class="btn btn-default" ui-sref="yeti.orabelle.edit({orabelleId: orabelle._id})">Edit</a>
+		<a class="btn btn-default edit-style" ui-sref="yeti.orabelle.edit({orabelleId: orabelle._id})">Edit</a>
 	</div>
 </div>
